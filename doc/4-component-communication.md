@@ -60,3 +60,9 @@ const App = ()=>{
 }
 
 ```
+## 2 - Props vs State
+```
+
+
+
+```
