@@ -1,37 +1,58 @@
 import { useState } from 'react';
 import './App.css';
-
-function Name(props:{name:string, onNameChange:(event: React.ChangeEvent<HTMLInputElement>) => void}) {
-  return (
-    <div>
-      <label htmlFor="name">Name: </label>
-      <input id="name" type="text" value={props.name} onChange={props.onNameChange} />
-    </div>
-  )
-}
-function FavoriteAnimal(props:{animal:string,onNameChange:(event: React.ChangeEvent<HTMLInputElement>)=>void}){
-  return(
-    <div>
-       <label htmlFor="animal">Animal: </label>
-      <input id="animal" type="text" value={props.animal} onChange={props.   onNameChange} />
-    </div>
-  )
-}
-function Display(props:{name:string,animal:string}){
-  return (
-    <div>
-      Your name is {props.name} and your favorite animal is {props.animal}
-    </div>
-  )
-}
+import './css/semantic.css'
+import { ArticleData } from './types/ArticleData';
+import Articles from './components/Articles';
+import logo from './assets/react.svg'
 const App = ()=>{
-  const [name, setName] = useState('')
-  const [animal, setAnimal] = useState('')
+  const [titleValue,setTitleValue]= useState('');
+  const [linkValue,setLinkValue]= useState('');
+  const [articles,setArticles] = useState<ArticleData[]>([]);
+  function addArticle(){
+    const articleToSaved = {title:titleValue,link:linkValue,votes:0}
+    if(articleToSaved){
+      setArticles([...articles, articleToSaved ])
+    }
+    setTitleValue('')
+    setLinkValue('')
+  }
   return (
     <>
-      <Name name={name} onNameChange={event => setName(event.target.value)}/>
-      <FavoriteAnimal animal={animal} onNameChange={event => setAnimal(event.target.value)}/>
-      <Display name={name} animal={animal}/>
+     <div className="ui menu">
+      <div className="ui container">
+        <a href="#" className="header item">
+          <img className="logo" src={logo}/>
+           react
+        </a>
+        <div className="header item borderless">
+          <h1 className="ui header">
+            React 18 Simple Reddit
+          </h1>
+        </div>
+      </div>
+    </div>
+    <div className="ui main text container">
+    <div>
+     <form className="ui large form segment" onSubmit={e => e.preventDefault()}>
+        <h3 className="ui header">Add a Link</h3>
+         <div className="field">
+            <label htmlFor="title">Title:</label>
+            <input name="title" id="title" value={titleValue} onChange={(e)=>setTitleValue(e.target.value)}/>
+         </div>
+        <div className="field">
+            <label htmlFor="link">Link:</label>
+            <input name="link" id="link" value={linkValue} onChange={(e)=>setLinkValue(e.target.value)}/>
+        </div>
+        <button onClick={()=>addArticle()} className="ui positive right floated button" type="button">
+            Submit link
+        </button>
+      </form>
+
+     </div>
+     <div>
+        <Articles articles={articles}/>
+     </div>
+    </div>
     </>
   )
 }
