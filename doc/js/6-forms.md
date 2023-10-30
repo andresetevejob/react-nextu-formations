@@ -53,6 +53,3 @@ const Contact = ()=>{
 }
 
 ```
-
-## 3 - React Form
-npm install react-hook-form
