@@ -9,9 +9,10 @@ import AppDv2 from './DynamicComponentV2.jsx'
 import './index.css'
 import Blog from './Blog.jsx'
 import AppUnControlledForm from './AppUnControlledForm.jsx'
+import TodoApp from './todoApp/TodoApp.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AppUnControlledForm />
+    <TodoApp />
   </React.StrictMode>,
 )
