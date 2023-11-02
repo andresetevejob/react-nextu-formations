@@ -10,7 +10,8 @@ function AppFormHook(){
     }
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <input defaultValue="test" {...register("example")}/>
+            <input defaultValue="test" {...register("oo")}/>
+            <input defaultValue="test" {...register("lastName")}/>
             <input type="submit"/>
         </form>
     )

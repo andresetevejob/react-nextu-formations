@@ -1,0 +1,10 @@
+.letter{
+    padding: 10;
+    margin: 10;
+    background-color: "#FFDE00";
+    color: "#333";
+    display: "inline-block";
+    font-family: "monospace";
+    font-size: 32;
+    text-align: "center"
+}

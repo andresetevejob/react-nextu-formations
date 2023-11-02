@@ -7,9 +7,11 @@ import AppComParentToChild from './ComParentToChildAndVisVersa.jsx'
 import AppFormHook from './FormHook.jsx'
 import AppDv2 from './DynamicComponentV2.jsx'
 import './index.css'
+import Blog from './Blog.jsx'
+import AppUnControlledForm from './AppUnControlledForm.jsx'
 
-ReactDOM.createRoot(document.getElementById('container')).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AppDv2 />
+    <AppUnControlledForm />
   </React.StrictMode>,
 )
