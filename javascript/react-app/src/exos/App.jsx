@@ -1,6 +1,6 @@
 import './App.css'
-import Categories from './Categories'
-import Header from './Header'
+import Categories from '../router/Categories'
+import Header from '../Header'
 import Letter from './Letter'
 
 function App() {

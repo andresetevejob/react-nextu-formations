@@ -11,12 +11,26 @@ const TASKS = [
 ]
 function TodoApp() {
   const [tasks,setTasks] = useState(TASKS)
+  console.log("rerendu");
   const addTask = eName => {
     console.group(eName);
     const newTask = { id: `todo-${nanoid()}`,name: eName, completed: false };
     setTasks([...tasks,newTask])
   }
-
+  const toggleTaskCompleted = id =>{
+    console.log(id);
+    console.log(TASKS[[id]]);
+    const updatedTasks = tasks.map((task) => {
+        // if this task has the same ID as the edited task
+        if (id === task.id) {
+          // use object spread to make a new object
+          // whose `completed` prop has been inverted
+          return { ...task, completed: !task.completed };
+        }
+        return task;
+    });
+    setTasks(updatedTasks);
+  }
   return (
     <div className="todoapp stack-large">
       <h1>TodoMatic</h1>
@@ -38,6 +52,7 @@ function TodoApp() {
             id={task.id} 
             name={task.name}
             key={task.id}
+            toggleTaskCompleted={toggleTaskCompleted}
             />)
           ) 
        }

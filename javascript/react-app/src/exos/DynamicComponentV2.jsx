@@ -1,3 +1,4 @@
+
 function Photo(){
     return (<h1>
         Photo
